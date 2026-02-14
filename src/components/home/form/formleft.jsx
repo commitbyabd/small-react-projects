@@ -6,10 +6,9 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 
-const FormLeft = () => {
+const FormLeft = ({ firstName }) => {
   return (
     <div className="h-full  text-black px-12 py-16 flex flex-col justify-between">
-
       {/* Top Section */}
       <div>
         <h2 className="text-4xl font-bold text-pink-500 mb-6">
@@ -26,11 +25,10 @@ const FormLeft = () => {
       </div>
 
       {/* Middle Section */}
-      <div >
+      <div>
         <h3 className="text-2xl font-semibold mb-6">San Francisco</h3>
 
         <div className="space-y-4 text-sm">
-
           <div className="flex items-start gap-4">
             <FontAwesomeIcon
               icon={faLocationDot}
@@ -43,24 +41,16 @@ const FormLeft = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <FontAwesomeIcon
-              icon={faPhone}
-              className="text-pink-500"
-            />
+            <FontAwesomeIcon icon={faPhone} className="text-pink-500" />
             <p>+1 (555) 123-4567</p>
           </div>
 
           <div className="flex items-center gap-4">
-            <FontAwesomeIcon
-              icon={faEnvelope}
-              className="text-pink-500"
-            />
+            <FontAwesomeIcon icon={faEnvelope} className="text-pink-500" />
             <p>hello@designsummit.com</p>
           </div>
-
         </div>
       </div>
-
     </div>
   );
 };

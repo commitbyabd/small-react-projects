@@ -1,45 +1,23 @@
-import { useState } from "react";
+import React from "react";
 
-const FormRight = () => {
-  const [formData, setFormData] = useState({
-    email: "Abdullah@gmail.com",
-    firstName: "Muhammad",
-    lastName: "Abdullah",
-    company: "System Heuristics",
-    department: "Human Resources",
-    mobile: "+92-330-8477994",
-    phone: "+42-35967321",
-    message: "Hello, I am writing this message to consider.......",
-  });
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+const FormRight = ({ formData, handleChange, handleSubmit }) => {
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    console.log(name, value);
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-  };
+  
 
   return (
-    <div  >
-      
-      <h1 className="text-4xl text-pink-500 font-bold my-4">Send Us a Message</h1>
+    <div>
+      <h1 className="text-4xl text-pink-500 font-bold my-4">
+        Send Us a Message
+      </h1>
       <form onSubmit={handleSubmit}>
-        <div >
+        <div>
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="Email"   className="w-[80%] px-4 py-2 border-2 border-black rounded-md bg-white"
-          
-            
+            placeholder="Email"
+            className="w-[80%] px-4 py-2 border-2 border-black rounded-md bg-white"
           />
         </div>
         <div className="flex gap-21">
@@ -116,7 +94,12 @@ const FormRight = () => {
           ></textarea>
         </div>
 
-        <button className="bg-black text-white rounded-4xl w-[15%] h-10 font-bold mt-6 hover:bg-pink-300" type="submit">Submit</button>
+        <button
+          className="bg-black text-white rounded-4xl w-[15%] h-10 font-bold mt-6 hover:bg-pink-300"
+          type="submit"
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
