@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import FormLeft from "./formleft";
-import FormRight from "./formright";
+import FormLeft from "./FormLeft";
+import FormRight from "./FormRight";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -15,14 +15,28 @@ const Form = () => {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    console.log(name, value);
+    if (type === "checkbox") {
+      if (name === "interests") {
+        setFormData((prev) => ({
+          ...prev,
+          interests: checked
+            ? [...prev.interests, value]
+            : prev.interests.filter((item) => item !== value),
+        }));
+      } else {
+        setFormData((prev) => ({
+          ...prev,
+          [name]: checked,
+        }));
+      }
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
   };
 
   const handleSubmit = (e) => {
@@ -31,12 +45,12 @@ const Form = () => {
   };
 
   return (
-    <div className="md:flex w-full  ">
-      <div className="md:w-1/2 animate-slideDown">
+    <div className="grid md:grid-cols-2 w-full min-h-screen">
+      <div className=" animate-slideDown">
         <FormLeft />
       </div>
 
-      <div className="md:w-1/2 animate-fadeIn">
+      <div className=" animate-fadeIn">
         <FormRight
           formData={formData}
           handleChange={handleChange}

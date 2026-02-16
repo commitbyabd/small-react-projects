@@ -27,7 +27,7 @@
 }
 
 .animate-slideUp {
-  animation: slideUp 0.8s ease-out  forwards;
+  animation: slideUp 0.8s ease-out forwards;
 }
 @keyframes fadeIn {
   from {

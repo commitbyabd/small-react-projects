@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "./form/form";
+import Form from "./form/Form";
 import bgImage from "../../assets/form-background.avif";
 
 
@@ -8,7 +8,7 @@ const Homemain = () => {
     <>
      
      <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat "
+      className="min-h-screen w-full bg-cover bg-center bg-no-repeat overflow-hidden"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <Form />

@@ -9,7 +9,7 @@ import {
 const FormLeft = ({ firstName }) => {
   return (
     <>
-      <div className="h-full  text-white px-12 py-16 flex flex-col justify-between font-[arial]">
+      <div className="h-full my-4  text-white px-12  flex flex-col  font-[arial]">
         {/* Top Section */}
         <div>
           <h2 className="text-4xl font-bold text-blue-100 mb-6">
@@ -33,11 +33,11 @@ mt-8 animate-pulse"
 
         {/* Middle Section */}
         <div className="mt-8">
-          <h3 className="text-3xl font-semibold mb-6 text-blue-100 ">
+          <h3 className="text-3xl font-semibold  text-blue-100 ">
             San Francisco
           </h3>
 
-          <div className="space-y-4 text-sm">
+          <div className=" text-md mt-5">
             <div className="flex items-start gap-4">
               <FontAwesomeIcon
                 icon={faLocationDot}
@@ -58,8 +58,10 @@ mt-8 animate-pulse"
               <FontAwesomeIcon icon={faEnvelope} className="text-blue-300" />
               <p>hello@designsummit.com</p>
             </div>
-            <div className="  text-sm text-gray-300">
+            <div className="  text-sm text-gray-300 py-10">
               <p>✔ 24/7 Customer Support</p>
+              <p>✔ 0 Wait Time</p>
+              <p>✔ On Call Agents Available </p>
             </div>
           </div>
         </div>
