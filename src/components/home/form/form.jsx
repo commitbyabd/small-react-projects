@@ -5,8 +5,8 @@ import FormRight from "./formright";
 const Form = () => {
   const [formData, setFormData] = useState({
     email: "Abdullah@gmail.com",
-    first_name: "Muhammad",
-    last_ame: "Abdullah",
+    firstName: "Muhammad",
+    lastName: "Abdullah",
     company: "System Heuristics",
     department: "Human Resources",
     mobile: "+92-330-8477994",
@@ -31,12 +31,12 @@ const Form = () => {
   };
 
   return (
-    <div className="flex w-full">
-      <div className="w-2/5">
+    <div className="md:flex w-full  ">
+      <div className="md:w-1/2 animate-slideDown">
         <FormLeft />
       </div>
 
-      <div className="w-3/5">
+      <div className="md:w-1/2 animate-fadeIn">
         <FormRight
           formData={formData}
           handleChange={handleChange}

@@ -1,13 +1,13 @@
 import React from "react";
-import  { mycolor } from "./formValues";
+
 
 const FormRight = ({ formData, handleChange, handleSubmit }) => {
-  // console.log(mycolor);
+
 
   return (
-    <div>
-      <h1 className="text-4xl text-pink-500 font-bold my-4">
-        Send Us a Message
+    <div >
+      <h1 className="text-4xl text-blue-100 font-bold my-4 ">
+        Send Us a Message 
       </h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -17,7 +17,7 @@ const FormRight = ({ formData, handleChange, handleSubmit }) => {
             value={formData.email}
             onChange={handleChange}
             placeholder="Email"
-            className="w-[80%] px-4 py-2 border-2 border-black rounded-md bg-white"
+            className="w-[80%] px-4 py-2 border-2 border-black rounded-md bg-blue-100"
           />
         </div>
         <div className="flex gap-21">
@@ -27,7 +27,7 @@ const FormRight = ({ formData, handleChange, handleSubmit }) => {
             name="firstName"
             value={formData.firstName}
             onChange={handleChange}
-            className="w-[35%] px-4 py-2 mt-3 border-2 border-black rounded-md  bg-white"
+            className="w-[35%] px-4 py-2 mt-3 border-2 border-black rounded-md  bg-blue-100"
           />
           <input
             type="text"
@@ -35,7 +35,7 @@ const FormRight = ({ formData, handleChange, handleSubmit }) => {
             name="lastName"
             value={formData.lastName}
             onChange={handleChange}
-            className="w-[35%] px-4 py-2 border-2 border-black rounded-md  bg-white mt-3"
+            className="w-[35%] px-4 py-2 border-2 border-black rounded-md  bg-blue-100 mt-3"
           />
         </div>
         <div>
@@ -48,7 +48,7 @@ const FormRight = ({ formData, handleChange, handleSubmit }) => {
             textOverflow: "ellipsis",
             overflow:"hidden"
           }}
-            className="w-[80%] px-4 py-2 border-2 border-black rounded-md bg-white mt-3"
+            className="w-[80%] px-4 py-2 border-2 border-black rounded-md bg-blue-100 mt-3"
           />
         </div>
         <div>
@@ -56,7 +56,7 @@ const FormRight = ({ formData, handleChange, handleSubmit }) => {
             name="department"
             value={formData.department}
             onChange={handleChange}
-            className="w-[80%] px-4 py-2 border-2 border-black rounded-md bg-white mt-3"
+            className="w-[80%] px-4 py-2 border-2 border-black rounded-md bg-blue-100 mt-3"
           >
             <option>Computer Science</option>
             <option>Machine Learning</option>
@@ -75,7 +75,7 @@ const FormRight = ({ formData, handleChange, handleSubmit }) => {
             name="mobile"
             value={formData.mobile}
             onChange={handleChange}
-            className="w-[35%] px-4 py-2 border-2 border-black rounded-md bg-white mt-3"
+            className="w-[35%] px-4 py-2 border-2 border-black rounded-md bg-blue-100 mt-3"
           />
           <input
             type="number"
@@ -83,7 +83,7 @@ const FormRight = ({ formData, handleChange, handleSubmit }) => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-[35%] px-4 py-2 border-2 border-black rounded-md bg-white mt-3"
+            className="w-[35%] px-4 py-2 border-2 border-black rounded-md bg-blue-100 mt-3"
           />
         </div>
 
@@ -97,12 +97,15 @@ const FormRight = ({ formData, handleChange, handleSubmit }) => {
             textOverflow: "ellipsis"
           }}
             rows={3}
-            className="w-[80%] min-h-15 px-4 py-2 border-2 border-black rounded-md bg-white mt-3"
+            className="w-[80%] min-h-15 px-4 py-2 border-2 border-black rounded-md bg-blue-100 mt-3"
           ></textarea>
         </div>
 
         <button
-          className="bg-black text-white rounded-4xl w-[15%] h-10 font-bold mt-6 hover:bg-pink-300"
+         className="bg-blue-600 text-white rounded-4xl px-6 py-2 font-bold mt-6 
+hover:bg-blue-500 hover:scale-105 hover:text-blue-200
+transition-all duration-300"
+
           type="submit"
         >
           Submit
