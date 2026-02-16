@@ -1,9 +1,6 @@
 import React from "react";
 
 const FormRight = ({ formData, handleChange, handleSubmit }) => {
-
-  
-
   return (
     <div>
       <h1 className="text-4xl text-pink-500 font-bold my-4">

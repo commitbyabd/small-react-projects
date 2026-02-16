@@ -1,11 +1,11 @@
-import React from 'react'
-import Homemain from '../components/home/homemain'
+import React from "react";
+import Homemain from "../components/home/homemain";
 const Home = () => {
   return (
     <div>
-         <Homemain />
+      <Homemain />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
