@@ -8,6 +8,7 @@ import {
 
 const FormLeft = ({ firstName }) => {
   return (
+    <>
     <div className="h-full  text-black px-12 py-16 flex flex-col justify-between">
       {/* Top Section */}
       <div>
@@ -52,6 +53,8 @@ const FormLeft = ({ firstName }) => {
         </div>
       </div>
     </div>
+    
+    </>
   );
 };
 

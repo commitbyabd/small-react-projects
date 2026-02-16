@@ -1,6 +1,9 @@
 import React from "react";
+import  { mycolor } from "./formValues";
 
 const FormRight = ({ formData, handleChange, handleSubmit }) => {
+  // console.log(mycolor);
+
   return (
     <div>
       <h1 className="text-4xl text-pink-500 font-bold my-4">
@@ -41,7 +44,10 @@ const FormRight = ({ formData, handleChange, handleSubmit }) => {
             placeholder="Company/Organization"
             name="company"
             value={formData.company}
-            onChange={handleChange}
+            onChange={handleChange}style={{
+            textOverflow: "ellipsis",
+            overflow:"hidden"
+          }}
             className="w-[80%] px-4 py-2 border-2 border-black rounded-md bg-white mt-3"
           />
         </div>
@@ -64,7 +70,7 @@ const FormRight = ({ formData, handleChange, handleSubmit }) => {
 
         <div className="flex gap-21">
           <input
-            type="tel"
+            type="number"
             placeholder="Mobile phone (optional)"
             name="mobile"
             value={formData.mobile}
@@ -72,7 +78,7 @@ const FormRight = ({ formData, handleChange, handleSubmit }) => {
             className="w-[35%] px-4 py-2 border-2 border-black rounded-md bg-white mt-3"
           />
           <input
-            type="tel"
+            type="number"
             placeholder="Phone (optional)"
             name="phone"
             value={formData.phone}
@@ -87,7 +93,11 @@ const FormRight = ({ formData, handleChange, handleSubmit }) => {
             name="message"
             value={formData.message}
             onChange={handleChange}
-            className="w-[80%] h-35 px-4 py-2 border-2 border-black rounded-md bg-white mt-3"
+          style={{
+            textOverflow: "ellipsis"
+          }}
+            rows={3}
+            className="w-[80%] min-h-15 px-4 py-2 border-2 border-black rounded-md bg-white mt-3"
           ></textarea>
         </div>
 

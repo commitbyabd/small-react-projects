@@ -5,13 +5,13 @@ import FormRight from "./formright";
 const Form = () => {
   const [formData, setFormData] = useState({
     email: "Abdullah@gmail.com",
-    firstName: "Muhammad",
-    lastName: "Abdullah",
+    first_name: "Muhammad",
+    last_ame: "Abdullah",
     company: "System Heuristics",
     department: "Human Resources",
     mobile: "+92-330-8477994",
     phone: "+42-35967321",
-    message: "Hello, I am writing this message to consider.......",
+    message: "Hello, I am writing this message to consider",
   });
 
   const handleChange = (e) => {
