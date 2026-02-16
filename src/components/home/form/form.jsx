@@ -78,17 +78,15 @@ const Form = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
+    } else {
+      setErrors({});
+      alert("Form has been submitted successfully");
+      console.log(formData);
     }
-
-    setErrors({});
-    alert("Form has been submitted successfully");
-    console.log(formData);
   };
 
-  const newErrors = {};
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+  const handleChange = (event) => {
+    const { name, value, type, checked } = event.target;
 
     if (name === "mobile") {
       let digits = value.replace(/\D/g, "");

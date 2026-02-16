@@ -26,8 +26,8 @@ const FormLeft = ({ firstName }) => {
 
           <div
             className="h-[2px] bg-gradient-to-r 
-from-pink-500 via-purple-500 to-blue-500 
-mt-8 animate-pulse"
+          from-pink-500 via-purple-500 to-blue-500 
+            mt-8 animate-pulse"
           ></div>
         </div>
 
