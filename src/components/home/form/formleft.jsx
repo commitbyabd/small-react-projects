@@ -9,7 +9,7 @@ import {
 const FormLeft = ({ firstName }) => {
   return (
     <>
-      <div className="h-full my-4  text-white px-12  flex flex-col  font-[arial]">
+      <div className="h-full my-15  text-white px-12  flex flex-col  font-[arial]">
         {/* Top Section */}
         <div>
           <h2 className="text-4xl font-bold text-blue-100 mb-6">

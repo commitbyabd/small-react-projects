@@ -2,130 +2,138 @@ import React from "react";
 
 const FormRight = ({ formData, handleChange, handleSubmit, errors }) => {
   return (
-    <div>
-      <h1 className="text-4xl text-blue-100 font-bold my-4 ">
-        Send Us a Message
-      </h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          {errors.email && (
-            <p className="text-red-500 text-sm mb-1">{errors.email}</p>
-          )}
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Email"
-            className="w-[80%] px-4 py-2 border-2 border-black rounded-md bg-blue-100"
-          />
-        </div>
-        <div className="flex gap-21">
+    <div className="w-full flex justify-center px-4 md:px-0 ">
+      <div className="w-full max-w-xl">
+        <h1 className="text-3xl md:text-4xl text-blue-100 font-bold my-6 text-center md:text-left">
+          Send Us a Message
+        </h1>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {/* EMAIL */}
           <div>
-            {errors.firstName && (
-              <p className="text-red-500 text-sm mb-1">{errors.firstName}</p>
+            {errors.email && (
+              <p className="text-red-500 text-sm mb-1">{errors.email}</p>
             )}
             <input
-              type="text"
-              placeholder="FirstName"
-              name="firstName"
-              value={formData.firstName}
+              type="email"
+              name="email"
+              value={formData.email}
               onChange={handleChange}
-              className="w-[105%] px-4 py-2 mt-3 border-2 border-black rounded-md bg-blue-100"
+              placeholder="Email"
+              className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
             />
           </div>
 
+          {/* FIRST + LAST NAME */}
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="w-full">
+              {errors.firstName && (
+                <p className="text-red-500 text-sm mb-1">{errors.firstName}</p>
+              )}
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                placeholder="First Name"
+                className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
+              />
+            </div>
+
+            <div className="w-full">
+              {errors.lastName && (
+                <p className="text-red-500 text-sm mb-1">{errors.lastName}</p>
+              )}
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                placeholder="Last Name"
+                className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
+              />
+            </div>
+          </div>
+
+          {/* COMPANY */}
           <div>
-            {errors.lastName && (
-              <p className="text-red-500 text-sm mb-1">{errors.lastName}</p>
+            {errors.company && (
+              <p className="text-red-500 text-sm mb-1">{errors.company}</p>
             )}
             <input
               type="text"
-              placeholder="LastName"
-              name="lastName"
-              value={formData.lastName}
+              name="company"
+              value={formData.company}
               onChange={handleChange}
-              className="w-[110%] px-4 py-2 border-2 border-black rounded-md bg-blue-100 mt-3"
+              placeholder="Company / Organization"
+              className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
             />
           </div>
-        </div>
 
-        <div>
-          {errors.company && (
-            <p className="text-red-500 text-sm mb-1">{errors.company}</p>
-          )}
-
-          <input
-            type="text"
-            placeholder="Company/Organization"
-            name="company"
-            value={formData.company}
-            onChange={handleChange}
-            style={{
-              textOverflow: "ellipsis",
-              overflow: "hidden",
-            }}
-            className="w-[80%] px-4 py-2 border-2 border-black rounded-md bg-blue-100 mt-3"
-          />
-        </div>
-        <div>
-          {errors.department && (
-            <p className="text-red-500 text-sm mb-1">{errors.department}</p>
-          )}
-          <select
-            name="department"
-            value={formData.department}
-            onChange={handleChange}
-            className="w-[80%] px-4 py-2 border-2 border-black rounded-md bg-blue-100 mt-3"
-          >
-            <option>Computer Science</option>
-            <option>Machine Learning</option>
-            <option>Artificial Intelligence</option>
-            <option>Data Science</option>
-            <option>Fintech</option>
-            <option>Human Resources</option>
-            <option>OnBoarding And training</option>
-          </select>
-        </div>
-
-        <div className="flex gap-21">
+          {/* DEPARTMENT */}
           <div>
-            {errors.mobile && (
-              <p className="text-red-500 text-sm mb-1">{errors.mobile}</p>
+            {errors.department && (
+              <p className="text-red-500 text-sm mb-1">{errors.department}</p>
             )}
-            <input
-              type="text"
-              placeholder="Mobile phone"
-              name="mobile"
-              value={formData.mobile}
+            <select
+              name="department"
+              value={formData.department}
               onChange={handleChange}
-              className="w-[105%] px-4 py-2 border-2 border-black rounded-md bg-blue-100 mt-3"
-            />
+              className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
+            >
+              <option>Computer Science</option>
+              <option>Machine Learning</option>
+              <option>Artificial Intelligence</option>
+              <option>Data Science</option>
+              <option>Fintech</option>
+              <option>Human Resources</option>
+              <option>OnBoarding And training</option>
+            </select>
           </div>
 
-          <div>
-            {errors.phone && (
-              <p className="text-red-500 text-sm mb-1">{errors.phone}</p>
-            )}
-            <input
-              type="text"
-              placeholder="Tele-Phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-[110%] px-4 py-2 border-2 border-black rounded-md bg-blue-100 mt-3"
-            />
-          </div>
-        </div>
+          {/* MOBILE + PHONE */}
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="w-full">
+              {errors.mobile && (
+                <p className="text-red-500 text-sm mb-1">{errors.mobile}</p>
+              )}
+              <input
+                type="text"
+                name="mobile"
+                value={formData.mobile}
+                onChange={handleChange}
+                placeholder="Mobile"
+                className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
+              />
+            </div>
 
-        <div className="flex">
-          <div>
-            <div className="mt-4">
-              <p className="text-blue-100 font-semibold mb-2">
+            <div className="w-full">
+              {errors.phone && (
+                <p className="text-red-500 text-sm mb-1">{errors.phone}</p>
+              )}
+              <input
+                type="text"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Telephone"
+                className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
+              />
+            </div>
+          </div>
+
+          {/* CHECKBOXES */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <p className="text-blue-100 font-semibold mb-2 text-lg">
                 Profession (Select up to 2)
               </p>
 
-              <div className="space-y-2">
+              {errors.profession && (
+                <p className="text-red-500 text-sm mb-1">{errors.profession}</p>
+              )}
+
+              <div className="space-y-2 ">
                 {["Student", "Intern", "Working", "Unemployed"].map((item) => (
                   <label
                     key={item}
@@ -144,16 +152,18 @@ const FormRight = ({ formData, handleChange, handleSubmit, errors }) => {
                 ))}
               </div>
             </div>
-          </div>
 
-          <div className="mx-30">
-            <div className="mt-4">
-              <p className="text-blue-100 font-semibold mb-2">
-                Intrested Role (Select up to 2)
+            <div>
+              <p className="text-blue-100 font-semibold mb-2 text-lg">
+                Interested Role (Select up to 2)
               </p>
 
-              <div className="space-y-2">
-                {["Intern", "front-end", "Backend", "Full-stack"].map(
+              {errors.role && (
+                <p className="text-red-500 text-sm mb-1">{errors.role}</p>
+              )}
+
+              <div className="space-y-2 ">
+                {["Intern", "Front-end", "Backend", "Full-stack"].map(
                   (item) => (
                     <label
                       key={item}
@@ -174,12 +184,12 @@ const FormRight = ({ formData, handleChange, handleSubmit, errors }) => {
               </div>
             </div>
           </div>
-        </div>
-        <div>
-          <div className="flex">
-            <div className="mt-6">
-              <p className="text-blue-100 font-semibold mb-2">
-                Graduation Season (Select only 1)
+
+          {/* RADIOS */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <p className="text-blue-100 font-semibold mb-2 text-lg">
+                Graduation Season
               </p>
 
               <div className="space-y-2">
@@ -201,9 +211,10 @@ const FormRight = ({ formData, handleChange, handleSubmit, errors }) => {
                 ))}
               </div>
             </div>
-            <div className="mt-6 mx-17">
-              <p className="text-blue-100 font-semibold mb-2">
-                Flexibility (Select only 1)
+
+            <div>
+              <p className="text-blue-100 font-semibold mb-2 text-lg">
+                Flexibility
               </p>
 
               <div className="space-y-2">
@@ -227,25 +238,27 @@ const FormRight = ({ formData, handleChange, handleSubmit, errors }) => {
             </div>
           </div>
 
+          {/* MESSAGE */}
           <textarea
-            placeholder="Would you like to leave a message"
             name="message"
             value={formData.message}
             onChange={handleChange}
+            placeholder="Would you like to leave a message?"
             rows={3}
-            className="w-[80%] min-h-15 px-4 py-2 border-2 border-black rounded-md bg-blue-100 mt-3 "
-          ></textarea>
-        </div>
+            className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
+          />
 
-        <button
-          className="bg-blue-600 text-white rounded-4xl px-6 py-2 font-bold mt-6 
-                     hover:bg-blue-500 hover:scale-105 hover:text-blue-200
-                       transition-all duration-300"
-          type="submit"
-        >
-          Submit
-        </button>
-      </form>
+          {/* BUTTON */}
+          <div className="flex justify-center md:justify-start">
+            <button
+              type="submit"
+              className="bg-blue-600 text-white rounded-full px-6 py-2 font-bold hover:bg-blue-500 transition-all"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
