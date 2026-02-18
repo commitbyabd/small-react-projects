@@ -1,22 +1,24 @@
 import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import CustomInput from "../../ui/CustomInput";
 
 const FormRight = () => {
   const initialValues = {
-    email: "Abdullah@gmail.com",
-    firstName: "Muhammad",
-    lastName: "Abdullah",
-    company: "System Heuristics",
+    email: "",
+    firstName: "",
+    lastName: "",
+    company: "",
     department: "Human Resources",
-    mobile: "+92-330-8477994",
-    phone: "+42-35967321",
-    message: "Hello, I am writing this message to consider...",
+    mobile: "+92-",
+    phone: "+42-",
+    message: "",
     profession: ["Student"],
     role: ["Intern"],
     graduationSeason: "Spring",
     flexibility: "Remote",
   };
+
   const validationSchema = Yup.object({
     email: Yup.string()
       .trim()
@@ -29,11 +31,8 @@ const FormRight = () => {
       ),
 
     firstName: Yup.string().trim().required("First name is mandatory"),
-
     lastName: Yup.string().trim().required("Last name is mandatory"),
-
     company: Yup.string().trim().required("Company is mandatory"),
-
     department: Yup.string().required("Department is mandatory"),
 
     mobile: Yup.string()
@@ -55,14 +54,13 @@ const FormRight = () => {
       .required("Role is required"),
 
     graduationSeason: Yup.string().required("Select graduation season"),
-
     flexibility: Yup.string().required("Select flexibility option"),
 
     message: Yup.string(),
   });
 
   return (
-    <div className="w-full flex justify-center px-4 md:px-0 ">
+    <div className="w-full flex justify-center px-4 md:px-0">
       <div className="w-full max-w-xl">
         <h1 className="text-3xl md:text-4xl text-blue-100 font-bold my-6 text-center md:text-left">
           Send Us a Message
@@ -76,324 +74,67 @@ const FormRight = () => {
             alert("Form submitted successfully");
           }}
         >
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            setFieldValue,
-          }) => (
+          {({ handleSubmit }) => (
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* EMAIL */}
-              <div>
-                {errors.email && touched.email && (
-                  <p className="text-red-500 text-sm mb-1">{errors.email}</p>
-                )}
-                <input
-                  type="email"
-                  name="email"
-                  value={values.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  placeholder="Email"
-                  className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
-                />
-              </div>
-
-              {/* FIRST + LAST NAME */}
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="w-full">
-                  {errors.firstName && touched.firstName && (
-                    <p className="text-red-500 text-sm mb-1">
-                      {errors.firstName}
-                    </p>
-                  )}
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={values.firstName}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    placeholder="First Name"
-                    className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
-                  />
-                </div>
-
-                <div className="w-full">
-                  {errors.lastName && touched.lastName && (
-                    <p className="text-red-500 text-sm mb-1">
-                      {errors.lastName}
-                    </p>
-                  )}
-
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={values.lastName}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    placeholder="Last Name"
-                    className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
-                  />
-                </div>
-              </div>
-
-              {/* COMPANY */}
-              <div>
-                {errors.company && touched.company && (
-                  <p className="text-red-500 text-sm mb-1">{errors.company}</p>
-                )}
-
-                <input
-                  type="text"
-                  name="company"
-                  value={values.company}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  placeholder="Company / Organization"
-                  className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
-                />
-              </div>
-
-              {/* DEPARTMENT */}
-              <div>
-                {errors.department && touched.department && (
-                  <p className="text-red-500 text-sm mb-1">
-                    {errors.department}
-                  </p>
-                )}
-
-                <select
-                  name="department"
-                  value={values.department}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
-                >
-                  <option>Computer Science</option>
-                  <option>Machine Learning</option>
-                  <option>Artificial Intelligence</option>
-                  <option>Data Science</option>
-                  <option>Fintech</option>
-                  <option>Human Resources</option>
-                  <option>OnBoarding And training</option>
-                </select>
-              </div>
-
-              {/* MOBILE + PHONE */}
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="w-full">
-                  {errors.mobile && touched.mobile && (
-                    <p className="text-red-500 text-sm mb-1">{errors.mobile}</p>
-                  )}
-
-                  <input
-                    type="text"
-                    name="mobile"
-                    value={values.mobile}
-                    onBlur={handleBlur}
-                    onChange={(e) => {
-                      const raw = e.target.value.replace(/\D/g, "");
-
-                      let formatted = "";
-
-                      if (raw.length > 0) {
-                        formatted = "+" + raw.slice(0, 2);
-                      }
-
-                      if (raw.length > 2) {
-                        formatted += "-" + raw.slice(2, 5);
-                      }
-
-                      if (raw.length > 5) {
-                        formatted += "-" + raw.slice(5, 12);
-                      }
-
-                      setFieldValue("mobile", formatted);
-                    }}
-                    placeholder="Mobile"
-                    className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
-                  />
-                </div>
-
-                <div className="w-full">
-                  {errors.phone && touched.phone && (
-                    <p className="text-red-500 text-sm mb-1">{errors.phone}</p>
-                  )}
-
-                  <input
-                    type="text"
-                    name="phone"
-                    value={values.phone}
-                    onBlur={handleBlur}
-                    onChange={(e) => {
-                      const raw = e.target.value.replace(/\D/g, "");
-
-                      let formatted = "";
-
-                      if (raw.length > 0) {
-                        formatted = "+" + raw.slice(0, 2);
-                      }
-
-                      if (raw.length > 2) {
-                        formatted += "-" + raw.slice(2, 10);
-                      }
-
-                      setFieldValue("phone", formatted);
-                    }}
-                    placeholder="Telephone"
-                    className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
-                  />
-                </div>
-              </div>
-
-              {/* CHECKBOXES */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <p className="text-blue-100 font-semibold mb-2 text-lg">
-                    Profession (Select up to 2)
-                  </p>
-
-                  {errors.profession && touched.profession && (
-                    <p className="text-red-500 text-sm mb-1">
-                      {errors.profession}
-                    </p>
-                  )}
-
-                  <div className="space-y-2 ">
-                    {["Student", "Intern", "Working", "Unemployed"].map(
-                      (item) => (
-                        <label
-                          key={item}
-                          className="flex items-center gap-2 text-white"
-                        >
-                          <input
-                            type="checkbox"
-                            name="profession"
-                            value={item}
-                            checked={values.profession.includes(item)}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            className="accent-blue-500"
-                          />
-                          {item}
-                        </label>
-                      ),
-                    )}
-                  </div>
-                </div>
-
-                <div>
-                  <p className="text-blue-100 font-semibold mb-2 text-lg">
-                    Interested Role (Select up to 2)
-                  </p>
-
-                  {errors.role && touched.role && (
-                    <p className="text-red-500 text-sm mb-1">{errors.role}</p>
-                  )}
-
-                  <div className="space-y-2 ">
-                    {["Intern", "Front-end", "Backend", "Full-stack"].map(
-                      (item) => (
-                        <label
-                          key={item}
-                          className="flex items-center gap-2 text-white"
-                        >
-                          <input
-                            type="checkbox"
-                            name="role"
-                            value={item}
-                            checked={values.role.includes(item)}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            className="accent-blue-500"
-                          />
-                          {item}
-                        </label>
-                      ),
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* RADIOS */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <p className="text-blue-100 font-semibold mb-2 text-lg">
-                    Graduation Season
-                  </p>
-                  {errors.graduationSeason && touched.graduationSeason && (
-                    <p className="text-red-500 text-sm mb-1">
-                      {errors.graduationSeason}
-                    </p>
-                  )}
-                  <div className="space-y-2">
-                    {["Spring", "Fall", "Graduated"].map((item) => (
-                      <label
-                        key={item}
-                        className="flex items-center gap-2 text-white"
-                      >
-                        <input
-                          type="radio"
-                          name="graduationSeason"
-                          value={item}
-                          checked={values.graduationSeason === item}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          className="accent-blue-500"
-                        />
-                        {item}
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <p className="text-blue-100 font-semibold mb-2 text-lg">
-                    Flexibility
-                  </p>
-                  {errors.flexibility && touched.flexibility && (
-                    <p className="text-red-500 text-sm mb-1">
-                      {errors.flexibility}
-                    </p>
-                  )}
-
-                  <div className="space-y-2">
-                    {["Remote", "On-site", "Hybrid"].map((item) => (
-                      <label
-                        key={item}
-                        className="flex items-center gap-2 text-white"
-                      >
-                        <input
-                          type="radio"
-                          name="flexibility"
-                          value={item}
-                          checked={values.flexibility === item}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          className="accent-blue-500"
-                        />
-                        {item}
-                      </label>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* MESSAGE */}
-              <textarea
-                name="message"
-                value={values.message}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                placeholder="Would you like to leave a message?"
-                rows={3}
+              <CustomInput
+                name="email"
+                type="email"
+                placeholder="Email"
                 className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
               />
 
-              {/* BUTTON */}
+              {/* FIRST NAME */}
+              <CustomInput
+                name="firstName"
+                type="text"
+                placeholder="First Name"
+                className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
+              />
+
+              {/* LAST NAME */}
+              <CustomInput
+                name="lastName"
+                type="text"
+                placeholder="Last Name"
+                className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
+              />
+
+              {/* COMPANY */}
+              <CustomInput
+                name="company"
+                type="text"
+                placeholder="Company / Organization"
+                className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
+              />
+
+              {/* MOBILE */}
+              <CustomInput
+                name="mobile"
+                type="text"
+                placeholder="Mobile"
+                format="mobile"
+                className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
+              />
+
+              {/* TELEPHONE */}
+              <CustomInput
+                name="phone"
+                type="text"
+                placeholder="Telephone"
+                format="telephone"
+                className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
+              />
+
+              {/* MESSAGE */}
+              <CustomInput
+                name="message"
+                type="text"
+                placeholder="Would you like to leave a message?"
+                className="w-full px-4 py-2 border-2 border-black rounded-md bg-blue-100"
+              />
+
+              {/* SUBMIT BUTTON */}
               <div className="flex justify-center md:justify-start">
                 <button
                   type="submit"

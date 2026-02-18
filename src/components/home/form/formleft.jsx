@@ -6,7 +6,7 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 
-const FormLeft = ({ firstName }) => {
+const FormLeft = () => {
   return (
     <>
       <div className="h-full my-15  text-white px-12  flex flex-col  font-[arial]">
